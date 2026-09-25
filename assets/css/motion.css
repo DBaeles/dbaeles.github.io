@@ -64,22 +64,6 @@
   }
 }
 
-/* The hero's ambient glow drifts very slowly — abstract, not attention-
-   grabbing. */
-.hero__glow {
-  animation: glow-drift 12s ease-in-out infinite;
-}
-
-@keyframes glow-drift {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(2%, 3%) scale(1.08);
-  }
-}
-
 /* A faint grain, so dark panels have some depth instead of sitting flat. */
 body {
   background-image: radial-gradient(
@@ -88,6 +72,82 @@ body {
     transparent 0
   );
   background-size: 22px 22px;
+}
+
+/* Ambient background — three soft, blurred color washes drifting slowly
+   behind every page. Abstract only (no shapes read as objects); this is
+   where "coffee" shows up as color, not as a picture of anything. Fixed so
+   it stays put while the page scrolls. */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambient-glow span {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.14;
+}
+
+.ambient-glow span:nth-child(1) {
+  width: 30rem;
+  height: 30rem;
+  top: -12%;
+  left: -8%;
+  background: var(--color-accent);
+  animation: drift-a 20s ease-in-out infinite;
+}
+
+.ambient-glow span:nth-child(2) {
+  width: 24rem;
+  height: 24rem;
+  bottom: -14%;
+  right: -6%;
+  background: var(--color-accent-2);
+  animation: drift-b 24s ease-in-out infinite;
+}
+
+.ambient-glow span:nth-child(3) {
+  width: 20rem;
+  height: 20rem;
+  top: 38%;
+  right: 12%;
+  background: #a6432b;
+  animation: drift-c 28s ease-in-out infinite;
+}
+
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(6%, 8%) scale(1.15);
+  }
+}
+
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-6%, -5%) scale(1.1);
+  }
+}
+
+@keyframes drift-c {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-4%, 6%) scale(0.9);
+  }
 }
 
 /* Scroll reveal for grid listings — paired with assets/js/reveal.js. Each
@@ -128,7 +188,7 @@ body {
   .hero > h1,
   .hero > .hero__lede,
   .hero > .hero__actions,
-  .hero__glow {
+  .ambient-glow span {
     animation: none;
   }
 

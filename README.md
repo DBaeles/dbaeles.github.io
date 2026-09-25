@@ -16,7 +16,7 @@ node_modules. Deploys as-is — GitHub Pages serves directly from `main`.
 - `assets/css/` — `tokens.css` (palette/type/spacing variables),
   `global.css` (reset + base type), `components.css` (nav, cards,
   buttons, prose), `motion.css` (page transitions, hero entrance,
-  scroll-reveal for grid listings)
+  scroll-reveal for grid listings, the ambient background)
 - `assets/js/` — `include.js` (partials), `reveal.js` (scroll-reveal),
   `render-list.js` (renders project/post cards from JSON)
 - `assets/fonts/` — self-hosted woff2 (Lora, Archivo, Courier Prime), no

@@ -229,24 +229,7 @@
 
 /* Hero */
 .hero {
-  position: relative;
   padding-block: var(--space-6) var(--space-5);
-}
-
-.hero__glow {
-  position: absolute;
-  top: -10%;
-  left: -4%;
-  width: 26rem;
-  height: 26rem;
-  background: radial-gradient(
-    circle,
-    rgba(217, 154, 59, 0.22),
-    rgba(217, 154, 59, 0) 70%
-  );
-  filter: blur(10px);
-  z-index: -1;
-  pointer-events: none;
 }
 
 .hero__lede {
