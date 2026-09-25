@@ -134,7 +134,7 @@ PAGE_TEMPLATE = """<!doctype html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} &mdash; Daniel Hales</title>
+  <title>{title} &mdash; Dan</title>
   <meta name="description" content="{description}" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/fonts.css" />
