@@ -92,7 +92,7 @@
   background-size: 100% 1px;
 }
 
-/* Buttons — cut like a ticket stub, not a rounded pill */
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -101,8 +101,8 @@
   font-weight: 700;
   text-decoration: none;
   border: 2px solid var(--color-text);
+  border-radius: var(--radius);
   cursor: pointer;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 calc(100% - 12px));
   transition: background var(--duration-fast) var(--ease-standard),
     color var(--duration-fast) var(--ease-standard);
 }
@@ -128,63 +128,50 @@
   color: var(--color-bg);
 }
 
-/* Menu list — the board where projects and posts get listed, title on the
-   left, a dotted leader rule, then the tags. Modeled on a café menu, not a
-   card grid. */
-.menu-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* Grid list — projects and posts, revealed as you scroll (see motion.css). */
+.grid-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--space-3);
 }
 
-.menu-row + .menu-row {
-  border-top: 1px solid var(--color-border);
-}
-
-.menu-row__link {
+.entry-card {
   display: flex;
-  align-items: baseline;
-  gap: var(--space-2);
-  padding-block: var(--space-2);
+  flex-direction: column;
+  gap: 0.5em;
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
   text-decoration: none;
   color: var(--color-text);
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard);
 }
 
-.menu-row__title {
+.entry-card:hover,
+.entry-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: 0 18px 34px -22px rgba(217, 154, 59, 0.45);
+}
+
+.entry-card__title {
   font-family: var(--font-display);
   font-size: var(--fs-md);
   font-weight: 600;
-  white-space: nowrap;
 }
 
-.menu-row__leader {
+.entry-card__description {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
   flex: 1;
-  border-bottom: 2px dotted var(--color-border);
-  margin-bottom: 0.4em;
-  transition: border-color var(--duration-fast) var(--ease-standard);
 }
 
-.menu-row__meta {
+.entry-card__tags {
   font-size: var(--fs-sm);
   color: var(--color-text-muted);
-  white-space: nowrap;
-}
-
-.menu-row__description {
-  margin: 0 0 var(--space-2);
-  color: var(--color-text-muted);
-  font-size: var(--fs-sm);
-  max-width: var(--content-width);
-}
-
-.menu-row__link:hover .menu-row__title,
-.menu-row__link:focus-visible .menu-row__title {
-  color: var(--color-accent);
-}
-
-.menu-row__link:hover .menu-row__leader,
-.menu-row__link:focus-visible .menu-row__leader {
-  border-color: var(--color-accent);
 }
 
 /* Prose (blog / project detail body copy) */
@@ -242,37 +229,24 @@
 
 /* Hero */
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  flex-wrap: wrap;
+  position: relative;
   padding-block: var(--space-6) var(--space-5);
 }
 
-.hero__content {
-  flex: 1 1 26rem;
-}
-
-.hero__cup {
-  flex-shrink: 0;
-  width: 140px;
-  height: 140px;
-}
-
-.hero__name {
-  position: relative;
-  display: inline-block;
-}
-
-.hero__name-mark {
+.hero__glow {
   position: absolute;
+  top: -10%;
   left: -4%;
-  bottom: -0.1em;
-  width: 108%;
-  height: 0.35em;
+  width: 26rem;
+  height: 26rem;
+  background: radial-gradient(
+    circle,
+    rgba(217, 154, 59, 0.22),
+    rgba(217, 154, 59, 0) 70%
+  );
+  filter: blur(10px);
   z-index: -1;
-  color: var(--color-accent-2);
+  pointer-events: none;
 }
 
 .hero__lede {

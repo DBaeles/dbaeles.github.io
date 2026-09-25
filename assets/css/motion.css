@@ -38,18 +38,18 @@
   }
 }
 
-/* The homepage's one deliberate page-load moment: the hero's own content
-   steps in, staggered, and the underline draws itself in after the name
-   has landed. Nothing else on the page animates on load or on scroll. */
-.hero__content > * {
+/* Hero's one page-load moment: name, lede, and buttons step in in turn. */
+.hero > h1,
+.hero > .hero__lede,
+.hero > .hero__actions {
   animation: hero-in var(--duration-slow) var(--ease-standard) both;
 }
 
-.hero__content > *:nth-child(2) {
+.hero > .hero__lede {
   animation-delay: 90ms;
 }
 
-.hero__content > *:nth-child(3) {
+.hero > .hero__actions {
   animation-delay: 180ms;
 }
 
@@ -64,52 +64,19 @@
   }
 }
 
-.hero__name-mark path {
-  stroke-dasharray: 260;
-  stroke-dashoffset: 260;
-  animation: draw-underline 700ms var(--ease-standard) 550ms both;
+/* The hero's ambient glow drifts very slowly — abstract, not attention-
+   grabbing. */
+.hero__glow {
+  animation: glow-drift 12s ease-in-out infinite;
 }
 
-@keyframes draw-underline {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* Ambient coffee steam beside the hero — a continuous, low-key nod to the
-   theme. Decorative only (aria-hidden in the markup). */
-.steam {
-  opacity: 0;
-  transform-origin: 50% 100%;
-  animation: steam-rise 4.5s ease-in-out infinite;
-}
-
-.steam--1 {
-  animation-delay: 0s;
-}
-
-.steam--2 {
-  animation-delay: 1.4s;
-}
-
-.steam--3 {
-  animation-delay: 2.8s;
-}
-
-@keyframes steam-rise {
-  0% {
-    opacity: 0;
-    transform: translateY(6px) scaleY(0.85);
-  }
-  35% {
-    opacity: 0.55;
-  }
-  85% {
-    opacity: 0;
-  }
+@keyframes glow-drift {
+  0%,
   100% {
-    opacity: 0;
-    transform: translateY(-16px) scaleY(1.2);
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(2%, 3%) scale(1.08);
   }
 }
 
@@ -123,20 +90,23 @@ body {
   background-size: 22px 22px;
 }
 
-/* Warm feedback on interactive rows and buttons — a soft glow rather than
-   a hard color swap. */
-.menu-row__link {
-  margin-inline: calc(var(--space-2) * -1);
-  padding-inline: var(--space-2);
-  border-radius: var(--radius);
-  transition: background-color var(--duration-base) var(--ease-standard);
+/* Scroll reveal for grid listings — paired with assets/js/reveal.js. Each
+   item's --reveal-delay is set inline by render-list.js for a cascading
+   effect as the grid comes into view. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--duration-slow) var(--ease-standard)
+      var(--reveal-delay, 0ms),
+    transform var(--duration-slow) var(--ease-standard) var(--reveal-delay, 0ms);
 }
 
-.menu-row__link:hover,
-.menu-row__link:focus-visible {
-  background-color: rgba(217, 154, 59, 0.08);
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* Warm hover feedback — a soft glow rather than a hard color swap. */
 .btn--primary:hover {
   box-shadow: 0 0 22px -4px rgba(217, 154, 59, 0.55);
 }
@@ -155,18 +125,16 @@ body {
     scroll-behavior: auto !important;
   }
 
-  .hero__content > * {
+  .hero > h1,
+  .hero > .hero__lede,
+  .hero > .hero__actions,
+  .hero__glow {
     animation: none;
   }
 
-  .hero__name-mark path {
-    animation: none;
-    stroke-dashoffset: 0;
-  }
-
-  .steam {
-    animation: none;
-    opacity: 0.25;
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
   }
 
   ::view-transition-group(*),

@@ -1,5 +1,6 @@
-// Renders project/post rows from JSON data files into a menu-list.
-// Vanilla JS, no templating engine — just string building.
+// Renders project/post entries from JSON data files into a grid, each card
+// marked data-reveal so reveal.js animates it in as the grid scrolls into
+// view. Vanilla JS, no templating engine — just string building.
 window.renderList = (function () {
   function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, (c) => ({
@@ -11,17 +12,14 @@ window.renderList = (function () {
     }[c]));
   }
 
-  function rowMarkup(item, href) {
+  function cardMarkup(item, href) {
     const tags = (item.tags || []).join(", ");
     return `
-      <li class="menu-row">
-        <a class="menu-row__link" href="${escapeHtml(href)}">
-          <span class="menu-row__title">${escapeHtml(item.title)}</span>
-          <span class="menu-row__leader" aria-hidden="true"></span>
-          <span class="menu-row__meta">${escapeHtml(tags)}</span>
-        </a>
-        <p class="menu-row__description">${escapeHtml(item.description)}</p>
-      </li>
+      <a class="entry-card" href="${escapeHtml(href)}" data-reveal>
+        <h3 class="entry-card__title">${escapeHtml(item.title)}</h3>
+        <p class="entry-card__description">${escapeHtml(item.description)}</p>
+        <p class="entry-card__tags">${escapeHtml(tags)}</p>
+      </a>
     `;
   }
 
@@ -35,7 +33,10 @@ window.renderList = (function () {
       if (opts.featuredOnly) items = items.filter((i) => i.featured);
       items.sort((a, b) => new Date(b.date) - new Date(a.date));
       if (opts.limit) items = items.slice(0, opts.limit);
-      el.innerHTML = items.map((i) => rowMarkup(i, hrefFor(i))).join("");
+      el.innerHTML = items.map((i) => cardMarkup(i, hrefFor(i))).join("");
+      if (window.initReveal) {
+        window.initReveal(el.querySelectorAll("[data-reveal]"));
+      }
     } catch (err) {
       console.error("Failed to render list from", url, err);
     }

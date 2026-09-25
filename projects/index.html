@@ -20,13 +20,14 @@
     <section class="container section">
       <h1>Projects</h1>
       <p class="hero__lede">Things I've built.</p>
-      <ul class="menu-list" id="all-projects" style="margin-top: var(--space-4)"></ul>
+      <div class="grid-list" id="all-projects" style="margin-top: var(--space-4)"></div>
     </section>
   </main>
 
   <div data-include="/partials/footer.html"></div>
 
   <script src="/assets/js/include.js"></script>
+  <script src="/assets/js/reveal.js"></script>
   <script src="/assets/js/render-list.js"></script>
   <script>
     document.addEventListener("partials:loaded", function () {
