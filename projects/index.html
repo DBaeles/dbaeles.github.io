@@ -17,21 +17,20 @@
   <div data-include="/partials/header.html"></div>
 
   <main id="main">
-    <section class="container section" data-reveal>
+    <section class="container section">
       <h1>Projects</h1>
       <p class="hero__lede">Things I've built.</p>
-      <div class="card-grid" id="all-projects" style="margin-top: var(--space-4)"></div>
+      <ul class="menu-list" id="all-projects" style="margin-top: var(--space-4)"></ul>
     </section>
   </main>
 
   <div data-include="/partials/footer.html"></div>
 
   <script src="/assets/js/include.js"></script>
-  <script src="/assets/js/reveal.js"></script>
-  <script src="/assets/js/render-cards.js"></script>
+  <script src="/assets/js/render-list.js"></script>
   <script>
     document.addEventListener("partials:loaded", function () {
-      renderCards.projects("#all-projects");
+      renderList.projects("#all-projects");
     });
   </script>
 </body>

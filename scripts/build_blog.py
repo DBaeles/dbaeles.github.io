@@ -148,13 +148,11 @@ PAGE_TEMPLATE = """<!doctype html>
   <div data-include="/partials/header.html"></div>
 
   <main id="main">
-    <article class="container section prose stack" data-reveal>
-      <p><a class="link-underline" href="/blog/">&larr; All posts</a></p>
+    <article class="container section prose stack">
+      <p><a class="link-underline" href="/blog/">Back to blog</a></p>
       <span class="meta">{date_long}</span>
       <h1>{title}</h1>
-      <div class="card__meta">
-        {tags_html}
-      </div>
+      {tags_html}
       {content_html}
     </article>
   </main>
@@ -162,7 +160,6 @@ PAGE_TEMPLATE = """<!doctype html>
   <div data-include="/partials/footer.html"></div>
 
   <script src="/assets/js/include.js"></script>
-  <script src="/assets/js/reveal.js"></script>
 </body>
 </html>
 """
@@ -186,7 +183,7 @@ def build():
 
         tags = data.get("tags", [])
         content_html = markdown_to_html(body)
-        tags_html = "\n        ".join(f'<span class="tag">{esc(t)}</span>' for t in tags)
+        tags_html = f'<p class="meta">{esc(", ".join(tags))}</p>' if tags else ""
 
         html_out = PAGE_TEMPLATE.format(
             title=esc(data["title"]),

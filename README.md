@@ -15,12 +15,12 @@ node_modules. Deploys as-is — GitHub Pages serves directly from `main`.
   one place
 - `assets/css/` — `tokens.css` (palette/type/spacing variables),
   `global.css` (reset + base type), `components.css` (nav, cards,
-  buttons, prose), `motion.css` (page transitions, hover states,
-  scroll-reveal)
-- `assets/js/` — `include.js` (partials), `render-cards.js` (renders
-  project/post cards from JSON), `reveal.js` (scroll-reveal)
-- `assets/fonts/` — self-hosted woff2 (Fraunces, Source Sans 3, IBM Plex
-  Mono), no Google Fonts CDN request
+  buttons, menu-list rows, prose), `motion.css` (page transitions, the
+  homepage's one entrance animation)
+- `assets/js/` — `include.js` (partials), `render-list.js` (renders
+  project/post rows from JSON)
+- `assets/fonts/` — self-hosted woff2 (Rye, Archivo, Courier Prime), no
+  Google Fonts CDN request
 
 ## Writing a blog post
 

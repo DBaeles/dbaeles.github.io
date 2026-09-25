@@ -38,17 +38,29 @@
   }
 }
 
-/* Scroll reveal — paired with assets/js/reveal.js */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity var(--duration-slow) var(--ease-standard),
-    transform var(--duration-slow) var(--ease-standard);
+/* The one deliberate page-load moment: the hero's own children step in,
+   staggered. Nothing else on the page animates on load or on scroll. */
+.hero > * {
+  animation: hero-in var(--duration-slow) var(--ease-standard) both;
 }
 
-[data-reveal].is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.hero > *:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+.hero > *:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -61,9 +73,8 @@
     scroll-behavior: auto !important;
   }
 
-  [data-reveal] {
-    opacity: 1;
-    transform: none;
+  .hero > * {
+    animation: none;
   }
 
   ::view-transition-group(*),

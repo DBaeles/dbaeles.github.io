@@ -18,8 +18,14 @@
 
   <main id="main">
     <section class="container hero">
-      <p class="hero__eyebrow">Hello, I'm</p>
-      <h1>Dan</h1>
+      <h1>
+        <span class="hero__name">
+          Dan
+          <svg class="hero__name-mark" viewBox="0 0 220 26" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M4 16 C 40 24, 90 24, 110 14 S 190 4, 216 12" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+          </svg>
+        </span>
+      </h1>
       <p class="hero__lede">
         I build things and write about what I learn along the way — mostly
         software, security, and whatever rabbit hole I'm in this week.
@@ -30,32 +36,25 @@
       </div>
     </section>
 
-    <section class="container section" data-reveal>
-      <div class="section-heading">
-        <h2>Featured projects</h2>
-        <a class="link-underline" href="/projects/">All projects &rarr;</a>
-      </div>
-      <div class="card-grid" id="featured-projects" data-reveal></div>
+    <section class="container section">
+      <h2 class="section-heading">Featured projects</h2>
+      <ul class="menu-list" id="featured-projects"></ul>
     </section>
 
-    <section class="container section" data-reveal>
-      <div class="section-heading">
-        <h2>Latest writing</h2>
-        <a class="link-underline" href="/blog/">All posts &rarr;</a>
-      </div>
-      <div class="card-grid" id="latest-posts" data-reveal></div>
+    <section class="container section">
+      <h2 class="section-heading">Latest writing</h2>
+      <ul class="menu-list" id="latest-posts"></ul>
     </section>
   </main>
 
   <div data-include="/partials/footer.html"></div>
 
   <script src="/assets/js/include.js"></script>
-  <script src="/assets/js/reveal.js"></script>
-  <script src="/assets/js/render-cards.js"></script>
+  <script src="/assets/js/render-list.js"></script>
   <script>
     document.addEventListener("partials:loaded", function () {
-      renderCards.projects("#featured-projects", { featuredOnly: true, limit: 3 });
-      renderCards.posts("#latest-posts", { limit: 3 });
+      renderList.projects("#featured-projects", { featuredOnly: true, limit: 3 });
+      renderList.posts("#latest-posts", { limit: 3 });
     });
   </script>
 </body>
