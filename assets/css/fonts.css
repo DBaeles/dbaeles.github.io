@@ -1,11 +1,19 @@
 /* Self-hosted fonts — no external requests, no CDN dependency. */
 
 @font-face {
-  font-family: "Rye";
+  font-family: "Lora";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 700;
   font-display: swap;
-  src: url("/assets/fonts/rye-regular.woff2") format("woff2");
+  src: url("/assets/fonts/lora-variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Lora";
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/assets/fonts/lora-italic.woff2") format("woff2");
 }
 
 @font-face {

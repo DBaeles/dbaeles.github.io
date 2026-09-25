@@ -46,18 +46,12 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: var(--font-display);
   line-height: var(--lh-tight);
   color: var(--color-text);
-  font-weight: 400;
-}
-
-h3 {
-  font-family: var(--font-body);
-  line-height: var(--lh-tight);
-  color: var(--color-text);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 h1 {

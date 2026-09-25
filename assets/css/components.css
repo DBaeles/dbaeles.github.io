@@ -13,7 +13,8 @@
 
 .site-nav__brand {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-style: italic;
+  font-weight: 600;
   font-size: var(--fs-md);
   text-decoration: none;
   view-transition-name: site-brand;
@@ -152,7 +153,7 @@
 .menu-row__title {
   font-family: var(--font-display);
   font-size: var(--fs-md);
-  font-weight: 400;
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -241,7 +242,22 @@
 
 /* Hero */
 .hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
   padding-block: var(--space-6) var(--space-5);
+}
+
+.hero__content {
+  flex: 1 1 26rem;
+}
+
+.hero__cup {
+  flex-shrink: 0;
+  width: 140px;
+  height: 140px;
 }
 
 .hero__name {

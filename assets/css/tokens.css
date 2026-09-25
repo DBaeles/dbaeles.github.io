@@ -11,10 +11,9 @@
   --color-border: #6b5238;
   --color-focus: #d99a3b;
 
-  /* Type — Rye carries the personality at large sizes only; Archivo does
-     the actual work everywhere else. Courier Prime is for code, nothing
-     else. */
-  --font-display: "Rye", Georgia, serif;
+  /* Type — Lora carries the warmth in headings; Archivo does the actual
+     work everywhere else. Courier Prime is for code, nothing else. */
+  --font-display: "Lora", Georgia, serif;
   --font-body: "Archivo", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Courier Prime", ui-monospace, SFMono-Regular, monospace;
 

@@ -19,7 +19,7 @@ node_modules. Deploys as-is — GitHub Pages serves directly from `main`.
   homepage's one entrance animation)
 - `assets/js/` — `include.js` (partials), `render-list.js` (renders
   project/post rows from JSON)
-- `assets/fonts/` — self-hosted woff2 (Rye, Archivo, Courier Prime), no
+- `assets/fonts/` — self-hosted woff2 (Lora, Archivo, Courier Prime), no
   Google Fonts CDN request
 
 ## Writing a blog post
