@@ -1,0 +1,46 @@
+:root {
+  /* Palette — retro coffee/brown, warm and editorial */
+  --color-bg: #f5ece0;
+  --color-surface: #fbf6ee;
+  --color-surface-2: #efe1cc;
+  --color-text: #3b2a20;
+  --color-text-muted: #7a6754;
+  --color-accent: #b5502d;
+  --color-accent-2: #8c6a3f;
+  --color-border: #dcc9ae;
+  --color-focus: #b5502d;
+
+  /* Type */
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --fs-sm: 0.875rem;
+  --fs-base: 1.0625rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 1.75rem;
+  --fs-xl: 2.5rem;
+  --fs-xxl: clamp(2.5rem, 5vw + 1rem, 4.25rem);
+
+  --lh-tight: 1.15;
+  --lh-normal: 1.6;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+
+  /* Layout */
+  --content-width: 42rem;
+  --page-width: 72rem;
+  --radius: 10px;
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --duration-slow: 400ms;
+}

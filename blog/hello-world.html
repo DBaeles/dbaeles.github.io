@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello, World &mdash; Daniel Hales</title>
+  <meta name="description" content="The first post on this site, and a quick tour of how the blog pipeline works." />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/fonts.css" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/global.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/motion.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div data-include="/partials/header.html"></div>
+
+  <main id="main">
+    <article class="container section prose stack" data-reveal>
+      <p><a class="link-underline" href="/blog/">&larr; All posts</a></p>
+      <span class="meta">May 10, 2026</span>
+      <h1>Hello, World</h1>
+      <div class="card__meta">
+        <span class="tag">meta</span>
+      </div>
+      <p>This is the first post on the new site. It's written in <strong>Markdown</strong> in <code>content/blog/</code>, and turned into a real page by running:</p>
+<pre><code>python3 scripts/build_blog.py</code></pre>
+<p>That script reads every file in this folder, converts the Markdown to HTML, and writes out:</p>
+<ul><li>a page at <code>blog/&lt;slug&gt;.html</code></li><li>an entry in <code>blog/posts.json</code>, used by the blog index and homepage</li></ul>
+<p>No npm install, no framework — just a small script and some plain files.</p>
+<p>Note: this converter is intentionally minimal, not full CommonMark. Keep each list item on a single line (no wrapped continuation lines) and it will render correctly.</p>
+<blockquote><p>Replace this post with something real once you're ready.</p></blockquote>
+<p>Links work too, like a <a class="link-underline" href="/">link back to the homepage</a>.</p>
+    </article>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <script src="/assets/js/reveal.js"></script>
+</body>
+</html>

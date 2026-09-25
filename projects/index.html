@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects &mdash; Daniel Hales</title>
+  <meta name="description" content="Projects by Daniel Hales." />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/fonts.css" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/global.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/motion.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div data-include="/partials/header.html"></div>
+
+  <main id="main">
+    <section class="container section" data-reveal>
+      <h1>Projects</h1>
+      <p class="hero__lede">Things I've built.</p>
+      <div class="card-grid" id="all-projects" style="margin-top: var(--space-4)"></div>
+    </section>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <script src="/assets/js/reveal.js"></script>
+  <script src="/assets/js/render-cards.js"></script>
+  <script>
+    document.addEventListener("partials:loaded", function () {
+      renderCards.projects("#all-projects");
+    });
+  </script>
+</body>
+</html>

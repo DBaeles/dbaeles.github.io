@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "second-post",
+    "title": "A Second Post, For Good Measure",
+    "description": "A placeholder second post so the blog index has more than one card to show.",
+    "date": "2026-06-02",
+    "tags": [
+      "meta",
+      "notes"
+    ],
+    "cover": null,
+    "coverAlt": "",
+    "draft": false
+  },
+  {
+    "slug": "hello-world",
+    "title": "Hello, World",
+    "description": "The first post on this site, and a quick tour of how the blog pipeline works.",
+    "date": "2026-05-10",
+    "tags": [
+      "meta"
+    ],
+    "cover": null,
+    "coverAlt": "",
+    "draft": false
+  }
+]

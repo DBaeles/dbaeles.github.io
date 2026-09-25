@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "project-one",
+    "title": "Project One",
+    "description": "A short, punchy description of what this project does and why it exists. Replace with your own.",
+    "date": "2026-06-01",
+    "tags": ["python", "security"],
+    "cover": null,
+    "coverAlt": "",
+    "links": { "repo": "https://github.com/DBaeles", "demo": "" },
+    "featured": true,
+    "draft": false
+  },
+  {
+    "slug": "project-two",
+    "title": "Project Two",
+    "description": "Another project summary. Keep these to one or two sentences — the detail page is where the real writeup lives.",
+    "date": "2026-04-15",
+    "tags": ["web", "javascript"],
+    "cover": null,
+    "coverAlt": "",
+    "links": { "repo": "https://github.com/DBaeles", "demo": "" },
+    "featured": true,
+    "draft": false
+  },
+  {
+    "slug": "project-three",
+    "title": "Project Three",
+    "description": "A third sample project entry, so the grid and homepage teaser have enough cards to look right.",
+    "date": "2026-01-20",
+    "tags": ["ctf", "writeup"],
+    "cover": null,
+    "coverAlt": "",
+    "links": { "repo": "https://github.com/DBaeles", "demo": "" },
+    "featured": false,
+    "draft": false
+  }
+]
